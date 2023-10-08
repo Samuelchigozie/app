@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Create a new product</h1>
+    <div>
+        @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
     <form action="{{ route('product.store') }}" method="post">
         @csrf 
         @method('post')
